@@ -40,6 +40,9 @@ describe("Tag testing", function() {
       it('should send an error with 400 status code because missing name value', function(done) {
         chai.request(app)
           .post('/tag')
+          .send({
+            name: ""
+          })
           .end(function(err, res){
             expect(err).to.be.null
             expect(res).to.have.status(400)
